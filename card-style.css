@@ -1,0 +1,99 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+    color: #333;
+}
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+.card-content {
+    width: 70%; /* Increased width */
+    max-width: 1000px; /* Increased max-width */
+    margin: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: left;
+    margin-top: 120px;
+    margin-left: 20px;
+}
+
+.video-container {
+    width: 38%;
+    position: sticky;
+    top: 20px;
+    height: 100vh;
+    overflow: hidden;
+    margin: 2vw 0;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+    transition: transform 0.3s ease; /* Add transition */
+}
+
+.logo-container:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+.logo-container img {
+    height: 85px;
+}
+
+.title-area h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.image-area img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.video-embed {
+    width: 38%;
+    position: sticky;
+    top: 200px;
+    height: 100vh;
+    overflow: hidden;
+    margin: 2vw 0;
+}
+
+/* Make iframe responsive */
+.video-embed iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+}
+.writing-area p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
