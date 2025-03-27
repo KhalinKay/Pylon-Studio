@@ -31,6 +31,7 @@ body {
     perspective: 800px;
 }
 
+/* Default styles (for desktop) */
 .card-container {
     width: 300px;
     height: 200px;
@@ -47,7 +48,39 @@ body {
     transform-style: preserve-3d;
     transform: rotateY(calc(var(--i) * 72deg)) translateZ(350px);
     text-decoration: none;
-    transition: filter 0.3s ease; /* Add transition for dimming */
+    transition: filter 0.3s ease;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+    .card-container {
+        width: 200px; /* Reduce card width */
+        height: 130px; /* Reduce card height */
+    }
+
+    .card {
+        transform: rotateY(calc(var(--i) * 72deg)) translateZ(200px); /* Bring cards closer */
+    }
+
+    .logo-container img {
+        height: 150px; /* Reduce logo size */
+    }
+}
+
+/* For extra small screens (e.g., phones) */
+@media (max-width: 480px) {
+    .card-container {
+        width: 150px;
+        height: 100px;
+    }
+
+    .card {
+        transform: rotateY(calc(var(--i) * 72deg)) translateZ(150px); /* Further reduce depth */
+    }
+
+    .logo-container img {
+        height: 100px;
+    }
 }
 
 .card img {
@@ -61,19 +94,28 @@ body {
     filter: brightness(0.7); /* Dim the card on hover */
 }
 
-.card:hover::after {
-    content: attr(data-title); /* Display title from data attribute */
+.card::after {
+    content: attr(data-title); /* Display the title */
     position: absolute;
-    top: 50%;
+    bottom: 100px;
     left: 50%;
-    transform: translate(-50%, -50%);
-    color: white; /* Title text color */
-    font-size: 1.5em; /* Title font size */
-    background-color: rgba(0, 0, 0, 0.7); /* Title background */
-    padding: 10px;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
     border-radius: 5px;
-    z-index: 1; /* Ensure title is on top */
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+
+/* Show title on hover */
+.card:hover::after {
+    opacity: 1;
+}
+   
 @keyframes rotateCards {
     0% {
         transform: rotateY(0deg);

@@ -1,3 +1,4 @@
+/* Base styles */
 body {
     margin: 0;
     overflow-x: hidden;
@@ -9,91 +10,108 @@ body {
     color: #333;
 }
 
+/* Make the container responsive */
 .card-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    flex-direction: column; /* Stack on mobile */
+    align-items: center;
+    justify-content: center;
     min-height: 100vh;
+    padding: 10px;
 }
 
+/* Ensure the card adapts */
 .card-content {
-    width: 70%; /* Increased width */
-    max-width: 1000px; /* Increased max-width */
-    margin: 20px;
+    width: 80%; /* Default width */
+    max-width: 900px; /* Prevents it from being too wide */
+    margin: 20px 0;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    text-align: left;
-    margin-top: 120px;
-    margin-left: 20px;
+    text-align: center;
 }
 
-.video-container {
-    width: 38%;
-    position: sticky;
-    top: 20px;
-    height: 100vh;
-    overflow: hidden;
-    margin: 2vw 0;
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.logo-container {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
-    transition: transform 0.3s ease; /* Add transition */
-}
-
-.logo-container:hover {
-    transform: scale(1.1); /* Scale up on hover */
-}
-
+/* Logo styling */
 .logo-container img {
-    height: 85px;
+    height: 70px; /* Medium size */
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.8)); /* Strong black glow */
 }
 
+/* Title Styling */
 .title-area h1 {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    padding: 0 10px;
 }
 
+/* Image area */
 .image-area img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-.video-embed {
-    width: 38%;
-    position: sticky;
-    top: 200px;
-    height: 100vh;
-    overflow: hidden;
-    margin: 2vw 0;
-}
-
-/* Make iframe responsive */
-.video-embed iframe {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
-}
-.writing-area p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #000;
+    border-radius: 5px;
 }
 
+/* Writing area */
+.writing-area p {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 10px;
+    text-align: justify;
+}
+
+/* Back link */
 .back-link {
     display: block;
     margin-top: 20px;
+    font-size: 1rem;
     text-decoration: none;
     color: #007bff;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .card-content {
+        width: 90%; /* Slightly wider on tablets */
+        max-width: 750px;
+    }
+
+    .title-area h1 {
+        font-size: 1.7em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card-content {
+        width: 95%;
+        max-width: 600px;
+        padding: 15px;
+    }
+
+    .title-area h1 {
+        font-size: 1.5em;
+    }
+
+    .logo-container img {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card-content {
+        width: 98%; /* Fill screen on small phones */
+        max-width: 450px;
+        padding: 10px;
+    }
+
+    .title-area h1 {
+        font-size: 1.3em;
+    }
+
+    .writing-area p {
+        font-size: 0.9rem;
+    }
+
+    .logo-container img {
+        height: 40px;
+    }
 }
